@@ -1,5 +1,7 @@
 
-open data
+open Data
+
+exception LexError of int * char * string
 
 let lex ( reader : < current : char
           ; index : int

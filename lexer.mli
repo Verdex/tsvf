@@ -1,7 +1,7 @@
 
 open Data
 
-exception lex_error of int * char * string
+exception LexError of int * char * string
 
 val lex : < current : char
           ; index : int

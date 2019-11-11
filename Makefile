@@ -1,6 +1,6 @@
 
 all: Data.cmi Lexer.cmx Main.cmx
-	ocamlopt -o tsvf 
+	ocamlopt -o tsvf Lexer.cmx Main.cmx
 
 Main.cmx:
 	ocamlopt -c Main.ml

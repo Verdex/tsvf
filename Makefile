@@ -1,16 +1,16 @@
 
-all: data.cmi lexer.cmx main.cmx
+all: Data.cmi Lexer.cmx Main.cmx
 	ocamlopt -o tsvf 
 
-main.cmx:
-	ocamlopt -c main.ml
+Main.cmx:
+	ocamlopt -c Main.ml
 
-lexer.cmx:
-	ocamlc -c lexer.mli
-	ocamlopt -c lexer.ml
+Lexer.cmx:
+	ocamlc -c Lexer.mli
+	ocamlopt -c Lexer.ml
 
-data.cmi:
-	ocamlopt -c data.mli
+Data.cmi:
+	ocamlopt -c Data.mli
 
 clean:
 	rm -rf *.cmi

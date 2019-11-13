@@ -113,7 +113,7 @@ let lex ( input : < current : char
         | ':' -> ret := Colon :: !ret 
         | '|' -> ret := Orbar :: !ret
         | '=' -> ret := Equal :: !ret
-        | '-' -> ret := (lex_right_arrow input) :: !ret 
+        | '-' -> ret := lex_right_arrow input :: !ret 
         | c when is_symbol_start c -> ret := lex_symbol input :: !ret 
         | c when is_number c -> ret := lex_number input :: !ret
         | '"' -> ret := lex_string input :: !ret 

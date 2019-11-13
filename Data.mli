@@ -1,10 +1,8 @@
 
 type token = 
     | String of string
-    | Int of int
-    | Float of float
+    | Number of string
     | Symbol of string
-    | Dot
     | RParen
     | LParen
     | RCurl

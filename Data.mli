@@ -16,3 +16,5 @@ type token =
     | RightArrow 
     | Equal 
 
+type ast = 
+    | Module

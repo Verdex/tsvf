@@ -1,6 +1,7 @@
 
 
 mod <<symbol>> {
+    open <<symbol>>;
     type <<symbol>>[< <<symbolList>> >] = <<consList>> | <<type>> ;
     let <<symbol>> [: <<type>>] = <<expr>>;
 }
@@ -25,8 +26,9 @@ mod <<symbol>> {
           | <<string>>
           | <<number>>
           | <<fun>>
+          | { <<expr>> ; [<<expr>>] }
 
-<<fun>> => fun (<<paramList>>) -> <<expr>> ;
+<<fun>> => fun (<<paramList>>) -> <<expr>> 
 <<match>> => match <<expr>> {
     | <<case>> ;
 }

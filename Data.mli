@@ -16,5 +16,15 @@ type token =
     | RightArrow 
     | Equal 
 
+type m = { name : string
+         ; type_defs : type_def list
+         ; lets : let_expr list
+         ; opens : string list 
+         }
+
+type type_def = {}
+type let_expr = {} 
+
+
 type ast = 
-    | Module
+    | Module of m 

@@ -16,14 +16,15 @@ type token =
     | RightArrow 
     | Equal 
 
+type type_def = {ikky: string } 
+type let_expr = {blah : string}
+
 type m = { name : string
          ; type_defs : type_def list
          ; lets : let_expr list
          ; opens : string list 
          }
 
-type type_def = {}
-type let_expr = {} 
 
 
 type ast = 

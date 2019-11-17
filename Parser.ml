@@ -10,18 +10,18 @@ let must v =
 
 let e_symbol_with name input = 
     match input#current with
-    | Symbol n when name = n -> must input#move_next 
+    | Symbol n when name = n -> input#move_next
     | _ -> raise (ParseError (Printf.sprintf "expected symbol with value: %s" name))
 
 let e_symbol input =
     match input#current with
-    | Symbol n -> must input#move_next ; n
+    | Symbol n -> (input#move_next, n)
     | _ -> raise (ParseError "expected symbol")
 
 let e_mod input = 
     e_symbol_with "mod" input
     ; 
-    let mod_name = e_symbol input in
+    let (_, mod_name) = e_symbol input in
     
     { name = mod_name
     ; type_defs = []
@@ -33,6 +33,8 @@ let parse (input : < current : token
                    ; move_next : bool
                    ; look_ahead : int -> token option >) =
 
+    must input#move_next
+    ; 
     Module (e_mod input)
 
 

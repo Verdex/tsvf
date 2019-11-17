@@ -33,6 +33,8 @@ end
 
 ;;
 
+exception InputException of string
+
 let parse_inputer stuff = object
     val mutable _index = -1
     method move_next = 
@@ -42,13 +44,23 @@ let parse_inputer stuff = object
             end
         else 
             false
-    method current = List.nth stuff _index
+    method current = if _index = List.length stuff then
+                        raise (InputException "tried to read beyond end of parse input")
+                     else 
+                        List.nth stuff _index
     method look_ahead a = 
         if _index + a  < List.length stuff then
             Some (List.nth stuff (_index + a))
         else
             None
 end
+
+;;
+
+let display_tok t = 
+    match t with
+    | Symbol v -> v
+    | _ -> "not implemented"
 
 ;;
 

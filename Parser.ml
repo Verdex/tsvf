@@ -8,6 +8,11 @@ let must v =
     | true -> ()
     | false -> raise (ParseError "failed must")
 
+let l_symbol_with name input =
+    match input#current with
+    | Symbol n when name = n -> true
+    | _ -> false 
+
 let e_symbol_with name input = 
     match input#current with
     | Symbol n when name = n -> input#move_next
@@ -22,6 +27,7 @@ let e_mod input =
     e_symbol_with "mod" input
     ; 
     let (_, mod_name) = e_symbol input in
+    
     
     { name = mod_name
     ; type_defs = []
